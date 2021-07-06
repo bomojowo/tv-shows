@@ -1,0 +1,5 @@
+.card-holder{
+    border: 5px solid blue;
+    border-collapse: separate;
+    border-spacing: 15px;
+}
