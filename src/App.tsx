@@ -1,11 +1,11 @@
-import { greet } from "./utils/greet";
+//import { greet } from "./utils/greet";
 // import episodes from './episodes.json'
 import Episodes from "./components/Episodes";
 
 function App(): JSX.Element {
   return (
     <div>
-      <h1>{greet("World")}</h1>
+      {/* <h1>{greet("World")}</h1> */}
       <Episodes />
     </div>
   );
