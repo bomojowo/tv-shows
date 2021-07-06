@@ -1,5 +1,22 @@
-.card-holder{
-    border: 5px solid blue;
-    border-collapse: separate;
-    border-spacing: 15px;
+h1 {
+    text-align: center;
+}
+
+.card {
+    margin-bottom: 15px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.card-title {
+    margin: 10px 10px 10px 10px ;
+    border-style: solid ;
+    border-color: black;
+    border-radius: 10px;
 }
