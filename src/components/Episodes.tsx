@@ -1,4 +1,4 @@
-import episodes from "../episodes.json";
+import episodes from '../episodes.json'
 // interface IEpisode {
 //     id: number;
 //     url: string;
@@ -18,21 +18,21 @@ import episodes from "../episodes.json";
 //     _links: { self: { href: string } };
 //   }
 
-function Episodes(): JSX.Element {
-  return (
-    <div>
-      {episodes.map((episode) => (
-        <div className="" key={episode.id}>
-          <p>
-            <b>Title: </b>
-            {episode.name} {String(episode.season).padStart(2, "0")}E0
-            {String(episode.number).padStart(1, "0")}
-          </p>
-          <p></p>
-        </div>
-      ))}
-    </div>
-  );
+function Episodes(): JSX.Element{
+    
+    return(
+        <div>
+            {episodes.map((episode) =>(
+                <div  key={episode.id}>
+                <p><b>{episode.name} - {String(episode.season).padStart(2, '0')} E0{String(episode.number).padStart(1, '0')}</b></p>
+                
+                <p>{episode.summary}</p>
+                </div>
+            ))}
+            <hr />
+            <p>This data has been obtained from <a href="https:WWW.TVMaze.com">TVMaze</a></p>
+            </div>
+    )
 }
 
-export default Episodes;
+export default Episodes
