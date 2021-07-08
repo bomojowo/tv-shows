@@ -24,15 +24,17 @@ interface IEpisode {
 
 function Episodes(): JSX.Element {
   const [search, setSearch] = useState<string>("");
+
   const filteredList = episodes.filter((episode: IEpisode) => {
-    if (search === "") {
-      return true;
-    } else if (
-      episode.summary
-        .toLocaleLowerCase()
-        .includes(search.toLocaleLowerCase()) ||
-      episode.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-    ) {
+    const emptyString = "";
+    const searchIncludedInSummary = episode.summary
+      .toLowerCase()
+      .includes(search.toLowerCase());
+    const searchIncludedInName = episode.name
+      .toLowerCase()
+      .includes(search.toLowerCase());
+
+    if (emptyString || searchIncludedInSummary || searchIncludedInName) {
       return true;
     } else {
       return false;
@@ -70,7 +72,6 @@ function Episodes(): JSX.Element {
               />
               <Card.Body className="card-block">
                 <Card.Text>{filteredEpisode.summary}</Card.Text>
-                {/* <Button variant="primary">TMZase</Button> */}
               </Card.Body>
             </Card>
           </div>
