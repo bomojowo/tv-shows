@@ -6,7 +6,6 @@ h1 {
   margin-bottom: 15px;
   margin-right: 10px;
   text-align: center;
-  
 }
 
 .card-container {
@@ -20,4 +19,17 @@ h1 {
   border-style: solid;
   border-color: black;
   border-radius: 10px;
+}
+
+.searchBar {
+  background-color: lightgrey;
+  text-align: center;
+  border-radius: 10px;
+  border-color: grey;
+  border-style: solid;
+
+}
+
+.searchBar:focus {
+  outline: none;
 }
