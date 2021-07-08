@@ -40,12 +40,14 @@ function Episodes(): JSX.Element {
         {episodes
           .filter((filteredEp: IEpisode) => {
             if (search === "") {
-              return filteredEp;
+              return true;
             } else if (
               filteredEp.summary.toLocaleLowerCase().includes(search) ||
               filteredEp.name.toLocaleLowerCase().includes(search)
             ) {
-              return filteredEp;
+              return true;
+            }else {
+              return false
             }
           })
           .map((episode: IEpisode) => (
