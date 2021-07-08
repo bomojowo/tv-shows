@@ -28,8 +28,8 @@ function Episodes(): JSX.Element {
     if (search === "") {
       return true;
     } else if (
-      episode.summary.toLocaleLowerCase().includes(search) ||
-      episode.name.toLocaleLowerCase().includes(search)
+      episode.summary.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
+      episode.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
     ) {
       return true;
     } else {
