@@ -3,6 +3,7 @@ import "./Episodes.css";
 import { Card } from "react-bootstrap";
 import { useState } from "react";
 
+
 interface IEpisode {
   id: number;
   url: string;
@@ -23,7 +24,22 @@ interface IEpisode {
 }
 
 function Episodes(): JSX.Element {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState <string>("");
+  const filteredList  = episodes
+  .filter((episode: IEpisode) => {
+    if (search === "") {
+      return true;
+    } else if (
+      episode.summary.toLocaleLowerCase().includes(search) ||
+      episode.name.toLocaleLowerCase().includes(search)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  )
+
   return (
     <div>
       <h1>TV Shows</h1>
@@ -35,44 +51,34 @@ function Episodes(): JSX.Element {
           setSearch(e.target.value);
         }}
       />
-
+      <h4>Displaying: {filteredList.length}/73 episodes</h4>
       <div className="card-container">
-        {episodes
-          .filter((filteredEp: IEpisode) => {
-            if (search === "") {
-              return true;
-            } else if (
-              filteredEp.summary.toLocaleLowerCase().includes(search) ||
-              filteredEp.name.toLocaleLowerCase().includes(search)
-            ) {
-              return true;
-            } else {
-              return false;
-            }
-          })
-          .map((episode: IEpisode) => (
-            <div key={episode.id}>
+        {filteredList
+          .map((filteredEpisode: IEpisode) => (
+            <div key={filteredEpisode.id}>
+             
               <Card className="card" style={{ width: "30rem", height: "35em" }}>
                 <Card.Title className="card-title">
                   <b>
-                    {episode.name} - S{String(episode.season).padStart(2, "0")}{" "}
+                    {filteredEpisode.name} - S{String(filteredEpisode.season).padStart(2, "0")}{" "}
                     E0
-                    {String(episode.number).padStart(1, "0")}
+                    {String(filteredEpisode.number).padStart(1, "0")}
                   </b>
                 </Card.Title>
                 <Card.Img
                   className="card-img-top"
                   variant="top"
-                  src={episode.image.medium}
+                  src={filteredEpisode.image.medium}
                   alt="scene from episode"
                 />
                 <Card.Body className="card-block">
-                  <Card.Text>{episode.summary}</Card.Text>
+                  <Card.Text>{filteredEpisode.summary}</Card.Text>
                   {/* <Button variant="primary">TMZase</Button> */}
                 </Card.Body>
               </Card>
-            </div>
-          ))}
+            </div>            
+          ))
+          }
       </div>
       <hr />
       <p>
