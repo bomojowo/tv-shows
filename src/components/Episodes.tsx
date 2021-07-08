@@ -46,8 +46,8 @@ function Episodes(): JSX.Element {
               filteredEp.name.toLocaleLowerCase().includes(search)
             ) {
               return true;
-            }else {
-              return false
+            } else {
+              return false;
             }
           })
           .map((episode: IEpisode) => (
