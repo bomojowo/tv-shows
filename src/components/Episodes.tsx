@@ -31,7 +31,7 @@ function Episodes(): JSX.Element {
       <div className="card-container">
         {episodes.map((episode: IEpisode) => (
           <div key={episode.id}>
-            <Card className="card" style={{ width: "20rem" }}>
+            <Card className="card" style={{ width: "30rem", height: "35em" }}>
               <Card.Title className="card-title">
                 <b>
                   {episode.name} - S{String(episode.season).padStart(2, "0")} E0
@@ -46,7 +46,7 @@ function Episodes(): JSX.Element {
               />
               <Card.Body className="card-block">
                 <Card.Text>{episode.summary}</Card.Text>
-                <Button variant="primary">TMZase</Button>
+                {/* <Button variant="primary">TMZase</Button> */}
               </Card.Body>
             </Card>
           </div>
