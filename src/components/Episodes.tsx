@@ -1,6 +1,6 @@
 import episodes from "../episodes.json";
-import { Card, Button } from "react-bootstrap";
 import "./Episodes.css";
+import { Card, Button } from "react-bootstrap";
 
 interface IEpisode {
   id: number;
@@ -25,13 +25,16 @@ function Episodes(): JSX.Element {
   return (
     <div>
       <h1>TV Shows</h1>
+      <input placeholder="search for an episode" />
+
+      <button>Search</button>
       <div className="card-container">
         {episodes.map((episode: IEpisode) => (
           <div key={episode.id}>
             <Card className="card" style={{ width: "20rem" }}>
               <Card.Title className="card-title">
                 <b>
-                  {episode.name} - {String(episode.season).padStart(2, "0")} E0
+                  {episode.name} - S{String(episode.season).padStart(2, "0")} E0
                   {String(episode.number).padStart(1, "0")}
                 </b>
               </Card.Title>
