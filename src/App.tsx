@@ -2,6 +2,7 @@
 // import episodes from './episodes.json'
 import Episodes from "./components/Episodes";
 import Search from "./components/Search";
+import Select from "./components/Select"
 import { useState } from "react";
 
 function App(): JSX.Element {
@@ -9,9 +10,11 @@ function App(): JSX.Element {
 
   return (
     <div>
-      {/* <h1>{greet("World")}</h1> */}
+    <h1>TV Shows</h1> 
       <Search setSearch={setSearch} />
+      <Select /> 
       <Episodes search={search} />
+     
     </div>
   );
 }
