@@ -82,7 +82,7 @@ function Episodes(): JSX.Element {
       </div>
       <hr />
       <p>
-        This data has been obtained from: 
+        This data has been obtained from:
         <a href="https:WWW.TVMaze.com"> TVMaze</a>
       </p>
     </div>
