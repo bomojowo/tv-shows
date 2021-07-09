@@ -30,6 +30,7 @@ function Episodes(): JSX.Element {
     const searchIncludedInSummary = episode.summary
       .toLowerCase()
       .includes(search.toLowerCase());
+
     const searchIncludedInName = episode.name
       .toLowerCase()
       .includes(search.toLowerCase());
@@ -44,6 +45,7 @@ function Episodes(): JSX.Element {
   return (
     <div>
       <h1>TV Shows</h1>
+
       <input
         className="searchBar"
         type="text"
@@ -52,6 +54,7 @@ function Episodes(): JSX.Element {
           setSearch(e.target.value);
         }}
       />
+
       <h4>Displaying: {filteredList.length}/73 episodes</h4>
       <div className="card-container">
         {filteredList.map((filteredEpisode: IEpisode) => (
@@ -60,8 +63,8 @@ function Episodes(): JSX.Element {
               <Card.Title className="card-title">
                 <b>
                   {filteredEpisode.name} - S
-                  {String(filteredEpisode.season).padStart(2, "0")} E0
-                  {String(filteredEpisode.number).padStart(1, "0")}
+                  {String(filteredEpisode.season).padStart(2, "0")} E
+                  {String(filteredEpisode.number).padStart(2, "0")}
                 </b>
               </Card.Title>
               <Card.Img
@@ -79,8 +82,8 @@ function Episodes(): JSX.Element {
       </div>
       <hr />
       <p>
-        This data has been obtained from{" "}
-        <a href="https:WWW.TVMaze.com">TVMaze</a>
+        This data has been obtained from: 
+        <a href="https:WWW.TVMaze.com"> TVMaze</a>
       </p>
     </div>
   );
