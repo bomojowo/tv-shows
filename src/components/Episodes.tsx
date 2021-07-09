@@ -2,8 +2,6 @@ import episodes from "../episodes.json";
 import "./Episodes.css";
 import { Card } from "react-bootstrap";
 
-import DropdownButton from "react-bootstrap/DropdownButton";
-import Dropdown from "react-bootstrap/Dropdown";
 
 interface IEpisode {
   id: number;
@@ -48,23 +46,6 @@ function Episodes(props: Search): JSX.Element {
 
   return (
     <div>
-      <h1>TV Shows</h1>
-
-      <DropdownButton
-        className="drop-down-list"
-        id="dropdown-basic-button"
-        title="Select"
-      >
-        {episodes.map((title) => (
-          <div key={title.id}>
-            <Dropdown.Item href="#/action-1">
-              <div key={title.id}>
-                <li>{title.name}</li>
-              </div>
-            </Dropdown.Item>
-          </div>
-        ))}
-      </DropdownButton>
 
       <h4>Displaying: {filteredList.length}/73 episodes</h4>
       <div className="card-container">

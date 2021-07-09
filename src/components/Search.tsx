@@ -5,7 +5,6 @@ interface SearchProps {
 function Search(props: SearchProps): JSX.Element {
   return (
     <div>
-      <h1>Search</h1>
       <input
         className="searchBar"
         type="text"
