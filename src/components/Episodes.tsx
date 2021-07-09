@@ -1,7 +1,7 @@
 import episodes from "../episodes.json";
 import "./Episodes.css";
 import { Card } from "react-bootstrap";
-import { useState } from "react";
+
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 
@@ -24,18 +24,20 @@ interface IEpisode {
   _links: { self: { href: string } };
 }
 
-function Episodes(): JSX.Element {
-  const [search, setSearch] = useState<string>("");
+interface Search {
+  search: string;
+}
 
+function Episodes(props: Search): JSX.Element {
   const filteredList = episodes.filter((episode: IEpisode) => {
     const emptyString = "";
     const searchIncludedInSummary = episode.summary
       .toLowerCase()
-      .includes(search.toLowerCase());
+      .includes(props.search.toLowerCase());
 
     const searchIncludedInName = episode.name
       .toLowerCase()
-      .includes(search.toLowerCase());
+      .includes(props.search.toLowerCase());
 
     if (emptyString || searchIncludedInSummary || searchIncludedInName) {
       return true;
@@ -48,16 +50,11 @@ function Episodes(): JSX.Element {
     <div>
       <h1>TV Shows</h1>
 
-      <input
-        className="searchBar"
-        type="text"
-        placeholder="Search..."
-        onChange={(e) => {
-          setSearch(e.target.value);
-        }}
-      />
-
-      <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+      <DropdownButton
+        className="drop-down-list"
+        id="dropdown-basic-button"
+        title="Select"
+      >
         {episodes.map((title) => (
           <div key={title.id}>
             <Dropdown.Item href="#/action-1">
