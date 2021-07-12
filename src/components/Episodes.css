@@ -21,18 +21,6 @@ h1 {
   border-radius: 10px;
 }
 
-.searchBar {
-  background-color: lightgrey;
-  text-align: center;
-  border-radius: 10px;
-  border-color: grey;
-  border-style: solid;
-}
-
-.searchBar:focus {
-  outline: none;
-}
-
 .drop-down-list {
   padding: 10px;
 }
