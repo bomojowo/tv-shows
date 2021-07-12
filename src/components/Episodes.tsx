@@ -2,7 +2,6 @@ import episodes from "../episodes.json";
 import "./Episodes.css";
 import { Card } from "react-bootstrap";
 
-
 interface IEpisode {
   id: number;
   url: string;
@@ -26,7 +25,7 @@ interface Search {
   search: string;
 }
 
-function Episodes({search}: Search): JSX.Element {
+function Episodes({ search }: Search): JSX.Element {
   const filteredList = episodes.filter((episode: IEpisode) => {
     const emptyString = "";
     const searchIncludedInSummary = episode.summary
@@ -46,7 +45,6 @@ function Episodes({search}: Search): JSX.Element {
 
   return (
     <div>
-
       <h4>Displaying: {filteredList.length}/73 episodes</h4>
       <div className="card-container">
         {filteredList.map((filteredEpisode: IEpisode) => (
