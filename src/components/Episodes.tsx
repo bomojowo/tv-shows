@@ -26,16 +26,16 @@ interface Search {
   search: string;
 }
 
-function Episodes(props: Search): JSX.Element {
+function Episodes({search}: Search): JSX.Element {
   const filteredList = episodes.filter((episode: IEpisode) => {
     const emptyString = "";
     const searchIncludedInSummary = episode.summary
       .toLowerCase()
-      .includes(props.search.toLowerCase());
+      .includes(search.toLowerCase());
 
     const searchIncludedInName = episode.name
       .toLowerCase()
-      .includes(props.search.toLowerCase());
+      .includes(search.toLowerCase());
 
     if (emptyString || searchIncludedInSummary || searchIncludedInName) {
       return true;
