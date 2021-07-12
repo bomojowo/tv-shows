@@ -1,0 +1,10 @@
+.searchBar {
+    background-color: lightgrey;
+    border-color: grey;
+    border-style: solid;
+    border-radius: 10px;
+  }
+  
+  .searchBar:focus {
+    outline: none;
+  }
