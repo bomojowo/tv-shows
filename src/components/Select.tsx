@@ -37,7 +37,7 @@ function Select({ setSelectedEp }: SelectedProps): JSX.Element {
         <option value="">Select an Episode</option>
         {episodes.map((episode: IEpisode) => (
           <option value={episode.name} key={episode.id}>
-            {episode.name} ({episode.id})
+            S{String(episode.season).padStart(2, "0")}E{String(episode.number).padStart(2, "0")} - {episode.name} 
           </option>
         ))}
       </select>

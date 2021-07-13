@@ -33,6 +33,7 @@ interface EpisodesProps {
 //else eveything is displayed
 
 function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
+ 
   //filteredList function
   const filteredList = episodes.filter((episode: IEpisode) => {
     const emptyString = "";
@@ -61,7 +62,7 @@ function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
 
   return (
     <div>
-      <h4>Displaying: {filteredList.length}/73 episodes</h4>
+      <p className="episode-count">Displaying: {filteredList.length}/73 episodes</p>
       <div className="card-container">
         {filteredList && (
           <div>
