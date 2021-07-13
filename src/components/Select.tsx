@@ -26,9 +26,6 @@ interface SelectedProps {
 
 function Select({ setSelectedEp }: SelectedProps): JSX.Element {
   function handleEpisodeSelectorChange(event: any): void {
-    // setSelectedEp(selectedEp )
-    console.log("working");
-    //console.log(event.target.value)
     setSelectedEp(event.target.value);
   }
   return (
