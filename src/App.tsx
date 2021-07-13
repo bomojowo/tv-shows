@@ -13,8 +13,7 @@ function App(): JSX.Element {
   return (
     <div>
       <Header />
-      <h1>TV Shows</h1>
-
+      <hr />
       <Search setSearch={setSearch} />
       <Select setSelectedEp={setSelectedEp} />
       <Episodes search={search} selectedEp={selectedEp} />
