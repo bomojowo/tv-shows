@@ -21,11 +21,20 @@ interface IEpisode {
   _links: { self: { href: string } };
 }
 
-interface Search {
+interface EpisodesProps {
   search: string;
+  selectedEp: string;
 }
 
-function Episodes({ search }: Search): JSX.Element {
+// when an option is selected
+  //only that episode will be displayed
+  //else if keyword is searched
+    //eps containing that keyword is displayed
+  //else eveything is displayed
+
+
+function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
+  //filteredList function
   const filteredList = episodes.filter((episode: IEpisode) => {
     const emptyString = "";
     const searchIncludedInSummary = episode.summary
@@ -36,18 +45,32 @@ function Episodes({ search }: Search): JSX.Element {
       .toLowerCase()
       .includes(search.toLowerCase());
 
-    if (emptyString || searchIncludedInSummary || searchIncludedInName) {
+    
+ 
+  if (selectedEp){
+    if(selectedEp === episode.name){
+      return true
+    }else{
+      return false
+    }
+  }
+  
+  if (emptyString || searchIncludedInSummary || searchIncludedInName) {
       return true;
     } else {
       return false;
     }
   });
 
+  
+  
+ 
+
   return (
     <div>
       <h4>Displaying: {filteredList.length}/73 episodes</h4>
       <div className="card-container">
-        {filteredList.map((filteredEpisode: IEpisode) => (
+      {filteredList && <div>{filteredList.map((filteredEpisode: IEpisode) => (
           <div key={filteredEpisode.id}>
             <Card className="card" style={{ width: "30rem", height: "35em" }}>
               <Card.Title className="card-title">
@@ -68,7 +91,9 @@ function Episodes({ search }: Search): JSX.Element {
               </Card.Body>
             </Card>
           </div>
-        ))}
+        ))}</div> }
+        
+        
       </div>
       <hr />
       <p>
