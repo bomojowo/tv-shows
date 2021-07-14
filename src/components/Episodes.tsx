@@ -66,13 +66,10 @@ function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
       </p>
       <div className="card-container">
         {filteredList && (
-         <>
+          <>
             {filteredList.map((filteredEpisode: IEpisode) => (
               <div key={filteredEpisode.id}>
-                <Card
-                  className="card"
-                 
-                >
+                <Card className="card">
                   <Card.Title className="card-title">
                     <b>
                       {filteredEpisode.name} - S
