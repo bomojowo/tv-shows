@@ -14,7 +14,6 @@ function App(): JSX.Element {
     const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
     const data = await response.json();
     setFetchedEpisodes(data);
-    
   };
 
   useEffect(() => {
@@ -27,7 +26,11 @@ function App(): JSX.Element {
       <hr />
       <Search setSearch={setSearch} />
       <Select setSelectedEp={setSelectedEp} fetchedEps={fetchedEps} />
-      <Episodes search={search} selectedEp={selectedEp} fetchedEps={fetchedEps} />
+      <Episodes
+        search={search}
+        selectedEp={selectedEp}
+        fetchedEps={fetchedEps}
+      />
     </div>
   );
 }

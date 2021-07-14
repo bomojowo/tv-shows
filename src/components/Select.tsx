@@ -21,14 +21,12 @@ interface IEpisode {
 
 interface SelectedProps {
   setSelectedEp: React.Dispatch<React.SetStateAction<string>>;
-  fetchedEps: any[]
+  fetchedEps: any[];
 }
 
 function Select({ setSelectedEp, fetchedEps }: SelectedProps): JSX.Element {
-
   function handleEpisodeSelectorChange(epName: string) {
     setSelectedEp(epName);
-
   }
   return (
     <div>

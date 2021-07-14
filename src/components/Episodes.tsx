@@ -24,7 +24,7 @@ interface IEpisode {
 interface EpisodesProps {
   search: string;
   selectedEp: string;
-  fetchedEps: any[]
+  fetchedEps: any[];
 }
 
 // when an option is selected
@@ -33,7 +33,11 @@ interface EpisodesProps {
 //eps containing that keyword is displayed
 //else eveything is displayed
 
-function Episodes({ search, selectedEp, fetchedEps }: EpisodesProps): JSX.Element {
+function Episodes({
+  search,
+  selectedEp,
+  fetchedEps,
+}: EpisodesProps): JSX.Element {
   // const [fetchedEps, setFetchedEpisodes] = useState<IEpisode[]>([]);
 
   //filteredList function
@@ -62,7 +66,6 @@ function Episodes({ search, selectedEp, fetchedEps }: EpisodesProps): JSX.Elemen
     }
   });
 
-
   // const getEps = async () => {
   //   const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
   //   const data = await response.json();
@@ -75,43 +78,43 @@ function Episodes({ search, selectedEp, fetchedEps }: EpisodesProps): JSX.Elemen
 
   return (
     <div>
-    <p className="episode-count">
-      Displaying: {filteredList.length}/73 episodes
-    </p>
-    <div className="card-container">
-      {filteredList && (
-        <>
-          {filteredList.map((filteredEpisode: IEpisode) => (
-            <div key={filteredEpisode.id}>
-              <Card className="card">
-                <Card.Title className="card-title">
-                  <b>
-                    {filteredEpisode.name} - S
-                    {String(filteredEpisode.season).padStart(2, "0")} E
-                    {String(filteredEpisode.number).padStart(2, "0")}
-                  </b>
-                </Card.Title>
-                <Card.Img
-                  className="card-img-top"
-                  variant="top"
-                  src={filteredEpisode.image.medium}
-                  alt="scene from episode"
-                />
-                <Card.Body className="card-block">
-                  <Card.Text>{filteredEpisode.summary}</Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-          ))}
-        </>
-      )}
+      <p className="episode-count">
+        Displaying: {filteredList.length}/73 episodes
+      </p>
+      <div className="card-container">
+        {filteredList && (
+          <>
+            {filteredList.map((filteredEpisode: IEpisode) => (
+              <div key={filteredEpisode.id}>
+                <Card className="card">
+                  <Card.Title className="card-title">
+                    <b>
+                      {filteredEpisode.name} - S
+                      {String(filteredEpisode.season).padStart(2, "0")} E
+                      {String(filteredEpisode.number).padStart(2, "0")}
+                    </b>
+                  </Card.Title>
+                  <Card.Img
+                    className="card-img-top"
+                    variant="top"
+                    src={filteredEpisode.image.medium}
+                    alt="scene from episode"
+                  />
+                  <Card.Body className="card-block">
+                    <Card.Text>{filteredEpisode.summary}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+            ))}
+          </>
+        )}
+      </div>
+      <hr />
+      <p>
+        This data has been obtained from:
+        <a href="https:WWW.TVMaze.com"> TVMaze</a>
+      </p>
     </div>
-    <hr />
-    <p>
-      This data has been obtained from:
-      <a href="https:WWW.TVMaze.com"> TVMaze</a>
-    </p>
-  </div>
   );
 }
 

@@ -40,11 +40,7 @@ function filteredList(): JSX.Element {
   //     return false;
   //   }
   // });
-  return(
-    <div>
-      hi
-    </div>
-  )
+  return <div>hi</div>;
 }
 
 export default filteredList;
