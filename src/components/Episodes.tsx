@@ -59,6 +59,14 @@ function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
     }
   });
 
+  // const handleGetEpisodes = async () => {
+  //   const response = await fetch (
+  //     "https://api.tvmaze.com/shows/82/episodes"
+  //   );
+  //   const jsonBody[] = await response.json()
+
+  // }
+
   return (
     <div>
       <p className="episode-count">
