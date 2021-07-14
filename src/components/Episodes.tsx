@@ -26,7 +26,6 @@ interface IEpisode {
 interface EpisodesProps {
   search: string;
   selectedEp: string;
-  
 }
 
 // when an option is selected
@@ -35,8 +34,8 @@ interface EpisodesProps {
 //eps containing that keyword is displayed
 //else eveything is displayed
 
-function Episodes({ search, selectedEp,  }: EpisodesProps): JSX.Element {
-const [fetchedEps, setFetchedEpisodes] = useState<IEpisode[]>([])
+function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
+  const [fetchedEps, setFetchedEpisodes] = useState<IEpisode[]>([]);
 
   //filteredList function
   const filteredList = fetchedEps.filter((episode: IEpisode) => {
@@ -64,21 +63,22 @@ const [fetchedEps, setFetchedEpisodes] = useState<IEpisode[]>([])
     }
   });
 
- 
-  const getEps = async () =>{
-  const response = await fetch("https://api.tvmaze.com/shows/82/episodes")
-  const data = await response.json()
-  setFetchedEpisodes(data)
-  }
+  const getEps = async () => {
+    const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
+    const data = await response.json();
+    setFetchedEpisodes(data);
+  };
 
   useEffect(() => {
-    getEps()
-  })
+    getEps();
+  });
 
   return (
     <div>
-      <p className="episode-count">Displaying: {filteredList.length}/73 episodes</p>
-      
+      <p className="episode-count">
+        Displaying: {filteredList.length}/73 episodes
+      </p>
+
       <div className="card-container">
         {filteredList && (
           <div>
