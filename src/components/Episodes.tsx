@@ -1,7 +1,8 @@
-import episodes from "../episodes.json";
+//import episodes from "../episodes.json";
 //import filteredList from "../utils/FilteredList";
 import "./Episodes.css";
 import { Card } from "react-bootstrap";
+import { useEffect, useState } from "react";
 
 interface IEpisode {
   id: number;
@@ -25,6 +26,7 @@ interface IEpisode {
 interface EpisodesProps {
   search: string;
   selectedEp: string;
+  
 }
 
 // when an option is selected
@@ -33,10 +35,11 @@ interface EpisodesProps {
 //eps containing that keyword is displayed
 //else eveything is displayed
 
-function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
- 
+function Episodes({ search, selectedEp,  }: EpisodesProps): JSX.Element {
+const [fetchedEps, setFetchedEpisodes] = useState<IEpisode[]>([])
+
   //filteredList function
-  const filteredList = episodes.filter((episode: IEpisode) => {
+  const filteredList = fetchedEps.filter((episode: IEpisode) => {
     const emptyString = "";
     const searchIncludedInSummary = episode.summary
       .toLowerCase()
@@ -61,9 +64,21 @@ function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
     }
   });
 
+ 
+  const getEps = async () =>{
+  const response = await fetch("https://api.tvmaze.com/shows/82/episodes")
+  const data = await response.json()
+  setFetchedEpisodes(data)
+  }
+
+  useEffect(() => {
+    getEps()
+  })
+
   return (
     <div>
       <p className="episode-count">Displaying: {filteredList.length}/73 episodes</p>
+      
       <div className="card-container">
         {filteredList && (
           <div>
