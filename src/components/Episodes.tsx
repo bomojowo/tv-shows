@@ -63,6 +63,7 @@ function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
     }
   });
 
+
   const getEps = async () => {
     const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
     const data = await response.json();
@@ -78,16 +79,18 @@ function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
       <p className="episode-count">
         Displaying: {filteredList.length}/73 episodes
       </p>
-
+      
       <div className="card-container">
         {filteredList && (
-          <div>
+          <>
             {filteredList.map((filteredEpisode: IEpisode) => (
               <div key={filteredEpisode.id}>
                 <Card
                   className="card"
                   style={{ width: "20rem", height: "35em" }}
                 >
+                <Card className="card">
+
                   <Card.Title className="card-title">
                     <b>
                       {filteredEpisode.name} - S
@@ -107,7 +110,7 @@ function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
                 </Card>
               </div>
             ))}
-          </div>
+          </>
         )}
       </div>
       <hr />
