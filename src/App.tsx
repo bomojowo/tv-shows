@@ -10,13 +10,16 @@ function App(): JSX.Element {
   const [search, setSearch] = useState<string>("");
   const [selectedEp, setSelectedEp] = useState("");
 
+  
+
   return (
     <div>
       <Header />
+     
       <hr />
       <Search setSearch={setSearch} />
       <Select setSelectedEp={setSelectedEp} />
-      <Episodes search={search} selectedEp={selectedEp} />
+      <Episodes search={search} selectedEp={selectedEp}  />
     </div>
   );
 }
