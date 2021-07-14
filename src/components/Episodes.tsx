@@ -1,4 +1,5 @@
 import episodes from "../episodes.json";
+//import filteredList from "../utils/FilteredList";
 import "./Episodes.css";
 import { Card } from "react-bootstrap";
 
@@ -70,7 +71,7 @@ function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
               <div key={filteredEpisode.id}>
                 <Card
                   className="card"
-                  style={{ width: "30rem", height: "35em" }}
+                  style={{ width: "20rem", height: "35em" }}
                 >
                   <Card.Title className="card-title">
                     <b>

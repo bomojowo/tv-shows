@@ -23,24 +23,25 @@ interface IEpisode {
     search: string;
   }
 
-function filteredList({search}: filteredListProps):JSX.Element {
+function filteredList({search}: filteredListProps): any {
     
-    const filteredList = episodes.filter((episode: IEpisode) => {
-        const emptyString = "";
-        const searchIncludedInSummary = episode.summary
-          .toLowerCase()
-          .includes(search.toLowerCase());
-    
-        const searchIncludedInName = episode.name
-          .toLowerCase()
-          .includes(search.toLowerCase());
-    
-    })
-    return(
-        <div>
-            Hi
-        </div>
-    )
+     //filteredList function
+    const filterEpisode = episodes.filter((episode: IEpisode) => {
+    const emptyString = "";
+    const searchIncludedInSummary = episode.summary
+      .toLowerCase()
+      .includes(search.toLowerCase());
+
+    const searchIncludedInName = episode.name
+      .toLowerCase()
+      .includes(search.toLowerCase());
+
+    if (emptyString || searchIncludedInSummary || searchIncludedInName) {
+      return true;
+    } else {
+      return false;
+    }
+  });
 }
 
 export default filteredList;
