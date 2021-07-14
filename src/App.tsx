@@ -15,7 +15,6 @@ function App(): JSX.Element {
   return (
     <div>
       <Header />
-     
       <hr />
       <Search setSearch={setSearch} />
       <Select setSelectedEp={setSelectedEp} />
@@ -26,5 +25,3 @@ function App(): JSX.Element {
 
 export default App;
 
-// console.log(`Imported ${episodes.length} episode(s)`);
-// console.log(`First episode's name is ${episodes[0].name}`);
