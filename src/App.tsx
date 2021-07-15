@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Episodes from "./components/Episodes";
 import Search from "./components/Search";
 import Select from "./components/Select";
-import {IEpisode} from "./components/Episodes"
+import { IEpisode } from "./components/Episodes";
 import { useState, useEffect } from "react";
 
 function App(): JSX.Element {

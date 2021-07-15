@@ -1,4 +1,3 @@
-
 import "./Select.css";
 
 interface IEpisode {

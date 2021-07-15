@@ -101,7 +101,11 @@ function Episodes({
                     alt="scene from episode"
                   />
                   <Card.Body className="card-block">
-                    <Card.Text>{filteredEpisode.summary.replace('<p>','').replace('</p>', '')}</Card.Text>
+                    <Card.Text>
+                      {filteredEpisode.summary
+                        .replace("<p>", "")
+                        .replace("</p>", "")}
+                    </Card.Text>
                   </Card.Body>
                 </Card>
               </div>
