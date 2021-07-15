@@ -1,3 +1,4 @@
+
 import "./Select.css";
 
 interface IEpisode {
@@ -21,7 +22,7 @@ interface IEpisode {
 
 interface SelectedProps {
   setSelectedEp: React.Dispatch<React.SetStateAction<string>>;
-  fetchedEps: any[];
+  fetchedEps: IEpisode[];
 }
 
 function Select({ setSelectedEp, fetchedEps }: SelectedProps): JSX.Element {

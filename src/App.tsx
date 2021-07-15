@@ -3,12 +3,13 @@ import Header from "./components/Header";
 import Episodes from "./components/Episodes";
 import Search from "./components/Search";
 import Select from "./components/Select";
+import {IEpisode} from "./components/Episodes"
 import { useState, useEffect } from "react";
 
 function App(): JSX.Element {
   const [search, setSearch] = useState<string>("");
   const [selectedEp, setSelectedEp] = useState("");
-  const [fetchedEps, setFetchedEpisodes] = useState<string[]>([]);
+  const [fetchedEps, setFetchedEpisodes] = useState<IEpisode[]>([]);
 
   const getEps = async () => {
     const response = await fetch("https://api.tvmaze.com/shows/82/episodes");

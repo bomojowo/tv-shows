@@ -2,7 +2,7 @@
 import "./Episodes.css";
 import { Card } from "react-bootstrap";
 
-interface IEpisode {
+export interface IEpisode {
   id: number;
   url: string;
   name: string;
@@ -24,7 +24,7 @@ interface IEpisode {
 interface EpisodesProps {
   search: string;
   selectedEp: string;
-  fetchedEps: any[];
+  fetchedEps: IEpisode[];
 }
 
 // when an option is selected
