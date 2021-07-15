@@ -1,8 +1,8 @@
-import episodes from "../episodes.json";
+//import filteredList from "../utils/FilteredList";
 import "./Episodes.css";
 import { Card } from "react-bootstrap";
 
-interface IEpisode {
+export interface IEpisode {
   id: number;
   url: string;
   name: string;
@@ -24,6 +24,7 @@ interface IEpisode {
 interface EpisodesProps {
   search: string;
   selectedEp: string;
+  fetchedEps: IEpisode[];
 }
 
 // when an option is selected
@@ -32,9 +33,15 @@ interface EpisodesProps {
 //eps containing that keyword is displayed
 //else eveything is displayed
 
-function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
+function Episodes({
+  search,
+  selectedEp,
+  fetchedEps,
+}: EpisodesProps): JSX.Element {
+  // const [fetchedEps, setFetchedEpisodes] = useState<IEpisode[]>([]);
+
   //filteredList function
-  const filteredList = episodes.filter((episode: IEpisode) => {
+  const filteredList = fetchedEps.filter((episode: IEpisode) => {
     const emptyString = "";
     const searchIncludedInSummary = episode.summary
       .toLowerCase()
@@ -59,13 +66,15 @@ function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
     }
   });
 
-  // const handleGetEpisodes = async () => {
-  //   const response = await fetch (
-  //     "https://api.tvmaze.com/shows/82/episodes"
-  //   );
-  //   const jsonBody[] = await response.json()
+  // const getEps = async () => {
+  //   const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
+  //   const data = await response.json();
+  //   setFetchedEpisodes(data);
+  // };
 
-  // }
+  // useEffect(() => {
+  //   getEps();
+  // });
 
   return (
     <div>
@@ -92,7 +101,11 @@ function Episodes({ search, selectedEp }: EpisodesProps): JSX.Element {
                     alt="scene from episode"
                   />
                   <Card.Body className="card-block">
-                    <Card.Text>{filteredEpisode.summary}</Card.Text>
+                    <Card.Text>
+                      {filteredEpisode.summary
+                        .replace("<p>", "")
+                        .replace("</p>", "")}
+                    </Card.Text>
                   </Card.Body>
                 </Card>
               </div>

@@ -1,4 +1,3 @@
-import episodes from "../episodes.json";
 import "./Select.css";
 
 interface IEpisode {
@@ -22,13 +21,11 @@ interface IEpisode {
 
 interface SelectedProps {
   setSelectedEp: React.Dispatch<React.SetStateAction<string>>;
+  fetchedEps: IEpisode[];
 }
 
-function Select({ setSelectedEp }: SelectedProps): JSX.Element {
-  function handleEpisodeSelectorChange(epName: string): void {
-    // setSelectedEp(selectedEp )
-    console.log("working");
-    //console.log(event.target.value)
+function Select({ setSelectedEp, fetchedEps }: SelectedProps): JSX.Element {
+  function handleEpisodeSelectorChange(epName: string) {
     setSelectedEp(epName);
   }
   return (
@@ -38,7 +35,7 @@ function Select({ setSelectedEp }: SelectedProps): JSX.Element {
         onChange={(event) => handleEpisodeSelectorChange(event.target.value)}
       >
         <option value="">Select an Episode</option>
-        {episodes.map((episode: IEpisode) => (
+        {fetchedEps.map((episode: IEpisode) => (
           <option value={episode.name} key={episode.id}>
             S{String(episode.season).padStart(2, "0")}E
             {String(episode.number).padStart(2, "0")} - {episode.name}
