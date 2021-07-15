@@ -12,7 +12,7 @@ function App(): JSX.Element {
 
   const getEps = async () => {
     const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
-    const data = await response.json();
+    const data = await response.json(); //regex: .replace('<p>','')
     setFetchedEpisodes(data);
   };
 
